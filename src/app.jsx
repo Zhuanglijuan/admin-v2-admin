@@ -1,18 +1,34 @@
 /*
- * @Author: samantha 
- * @Date: 2019-03-19 11:08:05 
- * @Last Modified by: samantha
- * @Last Modified time: 2019-03-19 14:09:37
+ * @Author: samantha
+ * @Date: 2019-03-19 11:08:05
+ * @Last Modified by: Samantha
+ * @Last Modified time: 2019-03-21 16:00:41
  */
 import React from 'react';
 import ReactDOM from 'react-dom';
-import 'font-awesome/css/font-awesome.min.css'
-import './index.css';
-import './index.scss';
+import { BrowserRouter as Router, Switch, Redirect, Route, Link } from 'react-router-dom';
+
+import Layout from 'component/layout/index.jsx';
+// 页面
+import Home from 'page/home/index.jsx';
+
+class App extends React.Component {
+    render() {
+        return (
+            <Router>
+                <Layout>
+                    <Switch>
+                        <Route exact path="/" component={Home} />
+                        <Route exact path="/product" component={Home} />
+                        <Route exact path="/product-category" component={Home} />
+                    </Switch>
+                </Layout>
+            </Router>
+        );
+    }
+}
 
 ReactDOM.render(
-  <div>
-    <h1>Hello, world!</h1>
-  </div>,
-  document.getElementById('app')
+    <App />,
+    document.getElementById('app')
 );
