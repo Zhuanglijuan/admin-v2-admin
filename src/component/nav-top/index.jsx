@@ -1,20 +1,38 @@
 /*
- * @Author: samantha 
- * @Date: 2019-03-21 14:51:51 
+ * @Author: Samantha
+ * @Date: 2019-03-21 14:51:51
  * @Last Modified by: Samantha
- * @Last Modified time: 2019-03-21 15:36:10
+ * @Last Modified time: 2019-03-22 14:02:27
  */
 import React from 'react';
-import { Link } from 'react-router-dom';
+import MUtil from 'util/mm.jsx';
+import User from 'service/user-service.jsx';
+import {withRouter} from "react-router-dom";
+
+import {Link} from 'react-router-dom';
+
+const _mm = new MUtil();
+const _user = new User();
+
 
 class NavTop extends React.Component {
     constructor(props) {
         super(props);
+        this.state = {
+            username: _mm.getStorage('userInfo').username || ''
+        }
     }
+
     // 退出登录
     onLogout() {
-
+        _user.logout().then(res => {
+            _mm.removeStorage('userInfo');
+            this.props.history.push('/login');
+        }, errMsg => {
+            _mm.errorTips(errMsg);
+        });
     }
+
     render() {
         return (
             <div className="navbar navbar-default top-navbar">
@@ -25,14 +43,21 @@ class NavTop extends React.Component {
                 <ul className="nav navbar-top-links navbar-right">
                     <li className="dropdown">
                         <a className="dropdown-toggle" href="javascript:;">
-                            <i className="fa fa-user fa-fw"></i> 
-                            <span>欢迎，adminXXX</span>
+                            <i className="fa fa-user fa-fw"></i>
+                            {
+                                this.state.username
+                                    ? <span>欢迎，{this.state.username}</span>
+                                    : <span>欢迎您</span>
+
+                            }
                             <i className="fa fa-caret-down"></i>
                         </a>
                         <ul className="dropdown-menu dropdown-user">
                             <li>
-                                <a onClick={() => {this.onLogout()}}>
-                                    <i className="fa fa-sign-out fa-fw"></i> 
+                                <a onClick={() => {
+                                    this.onLogout()
+                                }}>
+                                    <i className="fa fa-sign-out fa-fw"></i>
                                     <span>退出登录</span>
                                 </a>
                             </li>
@@ -44,4 +69,4 @@ class NavTop extends React.Component {
     }
 }
 
-export default NavTop;
+export default withRouter(NavTop);

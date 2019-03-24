@@ -1,8 +1,8 @@
 /*
- * @Author: samantha 
- * @Date: 2019-03-21 14:45:52 
+ * @Author: Samantha
+ * @Date: 2019-03-21 14:45:52
  * @Last Modified by: Samantha
- * @Last Modified time: 2019-03-21 16:00:21
+ * @Last Modified time: 2019-03-22 14:02:25
  */
 import React from 'react';
 import { Link, NavLink } from 'react-router-dom';
@@ -26,7 +26,7 @@ class NavSide extends React.Component {
 
                         <li className="active">
                             <Link to="/product">
-                                <i className="fa fa-sitemap"></i>
+                                <i className="fa fa-list"></i>
                                 <span>商品</span>
                                 <span className="fa arrow"></span>
                             </Link>
@@ -42,7 +42,7 @@ class NavSide extends React.Component {
 
                         <li className="active">
                             <Link to="/order">
-                                <i className="fa fa-sitemap"></i>
+                                <i className="fa fa-check-square-o"></i>
                                 <span>订单</span>
                                 <span className="fa arrow"></span>
                             </Link>
@@ -55,7 +55,7 @@ class NavSide extends React.Component {
 
                         <li className="active">
                             <Link to="/user">
-                                <i className="fa fa-sitemap"></i>
+                                <i className="fa fa-user-o"></i>
                                 <span>用户</span>
                                 <span className="fa arrow"></span>
                             </Link>

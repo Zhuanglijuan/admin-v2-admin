@@ -1,8 +1,8 @@
 /*
- * @Author: samantha
+ * @Author: Samantha
  * @Date: 2019-03-19 10:47:56
  * @Last Modified by: Samantha
- * @Last Modified time: 2019-03-21 14:52:10
+ * @Last Modified time: 2019-03-22 15:35:56
  */
 const path = require('path');
 const webpack = require('webpack');
@@ -19,7 +19,9 @@ module.exports = {
     resolve: {
         alias: {
             page: path.resolve(__dirname, 'src/page'),
-            component: path.resolve(__dirname, 'src/component')
+            component: path.resolve(__dirname, 'src/component'),
+            util: path.resolve(__dirname, 'src/util'),
+            service: path.resolve(__dirname, 'src/service')
         }
     },
     module: {
@@ -94,6 +96,16 @@ module.exports = {
         // 在访问一个路径的时候，如果是404错误未找到的话，会返回到这里指定的页面
         historyApiFallback: {
             index: '/dist/index.html'
+        },
+        proxy: {
+            '/manage' : {
+                target: 'http://admintest.happymmall.com',
+                changeOrigin: true
+            },
+            '/user/logout.do': {
+                target: 'http://admintest.happymmall.com',
+                changeOrigin: true
+            }
         }
     }
 };
