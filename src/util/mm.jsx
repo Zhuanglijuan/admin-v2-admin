@@ -54,13 +54,23 @@ class MUtil {
     // 存储本地存储
     setStorage(name, data) {
         let dataType = typeof data;
+        let curTime = new Date().getTime();
+        let expire = 1000 * 60 * 60 * 24; // 过期时间为24小时
         // json对象
         if (dataType === 'object') {
-            window.localStorage.setItem(name, JSON.stringify(data));
+            window.localStorage.setItem(name, JSON.stringify({
+                value: data,
+                time: curTime,
+                expire: expire
+            }));
         }
         // 基础类型
         else if (['number', 'string', 'boolean'].indexOf(dataType) >= 0) {
-            window.localStorage.setItem(name, data);
+            window.localStorage.setItem(name, JSON.stringify({
+                value: data,
+                time: curTime,
+                expire: expire
+            }));
         }
         // 其他不支持的类型
         else {
@@ -70,10 +80,15 @@ class MUtil {
 
     // 取出本地存储内容
     getStorage(name) {
-        let data = window.localStorage.getItem(name);
+        let data = JSON.parse(window.localStorage.getItem(name));
         // 有值
         if (data) {
-            return JSON.parse(data);
+            // 本地存储过期
+            if (new Date().getTime() - data.time > data.expire) {
+                this.removeStorage(name);
+                return '';
+            }
+            return data.value;
         }
         // 没有值
         else {
