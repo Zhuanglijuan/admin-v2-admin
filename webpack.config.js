@@ -7,13 +7,16 @@
 const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
+let WEBPACK_ENV = process.env.WEBPACK_ENV || 'dev';
+console.log(WEBPACK_ENV);
 module.exports = {
     entry: './src/app.jsx',
     output: {
         path: path.resolve(__dirname, 'dist'),
-        publicPath: '/dist/',
+        publicPath: WEBPACK_ENV === 'dev'
+            ? '/dist/' : '//s.jianliwu.com/admin-v2-fe/dist/',
         filename: 'js/app.js'
     },
     resolve: {
@@ -26,7 +29,7 @@ module.exports = {
     },
     module: {
         rules: [
-            // react语法的处理
+            // react(jsx)语法的处理
             {
                 test: /\.jsx$/,
                 exclude: /(node_modules)/,
@@ -55,25 +58,29 @@ module.exports = {
             },
             // 图片的配置
             {
-                test: /\.(png|jpg|gif)$/i,
-                use: [{
-                    loader: 'url-loader',
-                    options: {
-                        limit: 8192,
-                        name: 'resource/[name].[ext]'
+                test: /\.(png|jpg|gif)$/,
+                use: [
+                    {
+                        loader: 'url-loader',
+                        options: {
+                            limit: 8192,
+                            name: 'resource/[name].[ext]'
+                        }
                     }
-                }]
+                ]
             },
             // 字体图标的配置
             {
-                test: /\.(woff|woff2|eot|ttf|otf|svg)$/,
-                use: [{
-                    loader: 'url-loader',
-                    options: {
-                        limit: 8192,
-                        name: 'resource/[name].[ext]'
+                test: /\.(eot|svg|ttf|woff|woff2|otf)$/,
+                use: [
+                    {
+                        loader: 'url-loader',
+                        options: {
+                            limit: 8192,
+                            name: 'resource/[name].[ext]'
+                        }
                     }
-                }]
+                ]
             }
         ]
     },
@@ -93,12 +100,11 @@ module.exports = {
     ],
     devServer: {
         port: 8086,
-        // 在访问一个路径的时候，如果是404错误未找到的话，会返回到这里指定的页面
         historyApiFallback: {
             index: '/dist/index.html'
         },
         proxy: {
-            '/manage' : {
+            '/manage': {
                 target: 'http://admintest.happymmall.com',
                 changeOrigin: true
             },

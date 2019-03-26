@@ -4,7 +4,6 @@ License: Commons Attribution 3.0
 http://creativecommons.org/licenses/by/3.0/
 ------------------------------------------------*/
 
-
 /*----------------------------------------------
     COMMON  STYLES
 ------------------------------------------------*/
@@ -25,7 +24,6 @@ body {
 .text-center {
     text-align: center;
 }
-
 
 h1,
 .h1,
@@ -62,7 +60,7 @@ p {
     border-radius: 0px;
 }
 
-.navbar-side .nav>li>a>i {
+.navbar-side .nav > li > a > i {
     color: #B5B5B5;
     padding: 8px;
     width: 30px;
@@ -93,16 +91,16 @@ p {
     top: 55px;
 }
 
-.top-navbar .nav>li>a:hover,
-.top-navbar .nav>li>a:focus {
+.top-navbar .nav > li > a:hover,
+.top-navbar .nav > li > a:focus {
     text-decoration: none;
     background-color: #2497BA;
     color: #fff;
 }
 
-.nav .open>a,
-.nav .open>a:hover,
-.nav .open>a:focus {
+.nav .open > a,
+.nav .open > a:hover,
+.nav .open > a:focus {
     background-color: #2497BA;
     border-color: #428bca;
 }
@@ -160,7 +158,7 @@ p {
     border-color: #ECECEC;
 }
 
-.panel-default>.panel-heading {
+.panel-default > .panel-heading {
     color: #000;
     border-color: #FFF;
     font-weight: bold;
@@ -347,7 +345,6 @@ p {
     color: #ef4040;
 }
 
-
 .chat-panel .panel-body {
     height: 450px;
     overflow-y: scroll;
@@ -374,7 +371,7 @@ p {
     color: #8d8888;
 }
 
-.chat-img>img {
+.chat-img > img {
     margin-left: 20px;
 }
 
@@ -385,7 +382,6 @@ footer p {
 /*----------------------------------------------
     MENU STYLES
 ------------------------------------------------*/
-
 
 .user-image {
     margin: 25px auto;
@@ -417,15 +413,14 @@ footer p {
     margin-left: 38px;
 }
 
-.top-navbar .nav>li {
+.top-navbar .nav > li {
     position: relative;
     display: inline-block;
     margin: 0px;
     padding: 0px 10px;
 }
 
-
-.top-navbar .nav>li>a {
+.top-navbar .nav > li > a {
     position: relative;
     display: block;
     padding: 20px;
@@ -433,8 +428,8 @@ footer p {
     margin: 0px;
 }
 
-.top-navbar .nav>li>a:hover,
-.top-navbar .nav>li>a:focus {
+.top-navbar .nav > li > a:hover,
+.top-navbar .nav > li > a:focus {
     text-decoration: none;
     color: #319DB5 !important;
     background: transparent;
@@ -446,16 +441,16 @@ footer p {
     border-radius: 0 0 4px 4px;
 }
 
-.top-navbar .nav>li:hover .dropdown-menu {
+.top-navbar .nav > li:hover .dropdown-menu {
     display: block;
 }
 
-.top-navbar .dropdown-menu>li>a {
+.top-navbar .dropdown-menu > li > a {
     cursor: pointer;
 }
 
-.top-navbar .dropdown-menu>li>a:hover,
-.top-navbar .dropdown-menu>li>a:focus {
+.top-navbar .dropdown-menu > li > a:hover,
+.top-navbar .dropdown-menu > li > a:focus {
     color: #225081;
     background: none;
 }
@@ -472,7 +467,7 @@ footer p {
     border-radius: 0px;
 }
 
-.dropdown-tasks>li>a {
+.dropdown-tasks > li > a {
     padding: 0px 15px;
 }
 
@@ -500,10 +495,9 @@ footer p {
     content: "\f104";
 }
 
-.active>a>.fa.arrow:before {
+.active > a > .fa.arrow:before {
     content: "\f107";
 }
-
 
 .nav-second-level li,
 .nav-third-level li {
@@ -527,17 +521,17 @@ footer p {
     padding: 0;
 }
 
-.sidebar-collapse .nav>li>a {
+.sidebar-collapse .nav > li > a {
     color: #B5B5B5;
     background: transparent;
     text-shadow: none;
 }
 
-.sidebar-collapse>.nav>li>a {
+.sidebar-collapse > .nav > li > a {
     padding: 12px 10px;
 }
 
-.sidebar-collapse>.nav>li {
+.sidebar-collapse > .nav > li {
     border-bottom: 1px solid rgba(107, 108, 109, 0.19);
 }
 
@@ -545,8 +539,8 @@ ul.nav.nav-second-level.collapse.in {
     background: #17191B;
 }
 
-.sidebar-collapse .nav>li>a:hover,
-.sidebar-collapse .nav>li>a:focus {
+.sidebar-collapse .nav > li > a:hover,
+.sidebar-collapse .nav > li > a:focus {
     outline: 0;
 }
 
@@ -560,11 +554,11 @@ ul.nav.nav-second-level.collapse.in {
 
 }
 
-.top-navbar .nav>li>a>i {
+.top-navbar .nav > li > a > i {
     margin-right: 2px;
 }
 
-.top-navbar .nav>li>a>span {
+.top-navbar .nav > li > a > span {
     color: #666;
     margin-right: 5px;
 }
@@ -600,7 +594,7 @@ ul.nav.nav-second-level.collapse.in {
     background-color: #FFF;
 }
 
-.nav>li>a>i {
+.nav > li > a > i {
     margin-right: 10px;
     color: #666;
 }
@@ -624,7 +618,7 @@ ul.nav.nav-second-level.collapse.in {
     MEDIA QUERIES
 ------------------------------------------------*/
 
-@media(max-width:768px) {
+@media (max-width: 768px) {
     .top-navbar {
         position: relative;
     }
